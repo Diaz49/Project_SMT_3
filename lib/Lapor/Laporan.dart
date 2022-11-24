@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../Dashboard/Drawer.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 
 class laporan extends StatelessWidget {
   @override
@@ -60,11 +60,78 @@ class laporan extends StatelessWidget {
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)),
                           color: Colors.white),
-                      alignment: Alignment.topCenter,
-                      // padding: EdgeInsets.only(top: 10),
+                      // alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(top: 45, left: 25),
                       child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [])),
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Judul Laporan',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            const SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 18),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    hintText: "Ketikkan Judul Laporan"),
+                              ),
+                            ),
+                            const SizedBox(height: 25),
+                            Text(
+                              "Deskripsi Laporan",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            const SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 18),
+                              child: TextField(
+                                keyboardType: TextInputType.multiline,
+                                maxLines: 8,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide(width: 100)),
+                                    hintText: "Ketikkan Deskripsi Laporan"),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              "Pelapor",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            const SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 18),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    // border: OutlineInputBorder(
+                                    //   borderSide: BorderSide(width: 100)
+                                    // ),
+                                    color: Colors.amber,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: DropdownSearch<String>(
+                                  popupProps: PopupProps.menu(
+                                    showSelectedItems: true,
+                                    // disabledItemFn: (String s) =>
+                                    //     s.startsWith('I'),
+                                  ),
+                                  items: [
+                                    "Mahasiswa",
+                                    "Dosen",
+                                    "Anonymus",
+                                    "STAFF"
+                                  ],
+                                  dropdownDecoratorProps:
+                                      DropDownDecoratorProps(
+                                    dropdownSearchDecoration: InputDecoration(
+                                      hintText: "Mahasiswa",
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ])),
                 )
               ],
             ),

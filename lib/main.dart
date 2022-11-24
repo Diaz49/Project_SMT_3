@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_smt_3/welcome_screen.dart';
+import 'package:project_smt_3/Login/Register.dart';
+import 'package:project_smt_3/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }
